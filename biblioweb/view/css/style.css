@@ -1,0 +1,196 @@
+@import "header.css";
+
+/*
+    color orange : #F27C40
+    color purple : #7B00C9
+    white
+ */
+
+:root {
+  --main-color: #7b00c9;
+  --submain-color: #e46a51;
+  --submain-color-light: whitesmoke;
+  --main-bgcolor: lightgray;
+  --body-bg: whitesmoke;
+  --font: Ebrima, serif;
+  --text-color: #222;
+}
+
+/**************************************/
+/************** global ****************/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  font-family: var(--font);
+  width: 100%;
+  height: 100%;
+}
+
+form {
+  width: max-content;
+  margin: auto;
+  height: max-content;
+}
+
+form section {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: var(--text-color);
+  font-size: 20px;
+  margin: 6px 0;
+}
+
+input,
+select {
+  color: var(--text-color);
+  padding: 5px;
+  background-color: var(--main-bgcolor);
+  border: 1px solid var(--main-bgcolor);
+  border-radius: 8px;
+  float: right;
+  margin-left: 15px;
+  height: 32px;
+}
+
+input:hover,
+select:hover {
+  border-color: var(--submain-color);
+}
+
+button {
+  border-radius: 8px;
+  padding: 8px;
+  background-color: var(--main-bgcolor);
+  color: var(--submain-color);
+  border: 1px solid var(--submain-color);
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+}
+
+a {
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+/********** COLORS **********/
+
+.main-color {
+  color: var(--main-color);
+}
+
+.submain-color {
+  color: var(--submain-color);
+}
+
+.main-bgcolor {
+  background-color: var(--main-bgcolor);
+}
+
+/******** SCROLLBAR *********/
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--body-bg);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 8px;
+}
+/***************************/
+
+/********** UTIL ***********/
+
+.fixed-centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centered {
+  width: max-content;
+  margin: auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.error {
+  color: darkred;
+  font-weight: bolder;
+  margin: 15px 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#togglePassword {
+  color: var(--submain-color);
+  cursor: pointer;
+}
+
+/**************************************/
+/******* login + create account *******/
+
+#create-account-form div {
+  display: flex;
+}
+
+#create-account-form section:first-child {
+  margin-right: 25px;
+}
+
+#create-account-form section h2 {
+  color: var(--submain-color);
+  margin-bottom: 15px;
+}
+
+#create-acc-username:hover {
+  cursor: not-allowed;
+}
+
+/**************************************/
+/************ Books display ***********/
+
+#books-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#books-container article {
+  width: 500px;
+  padding: 10px;
+  margin: 15px auto;
+  text-align: left;
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
+}
+
+#books-container article:hover {
+  box-shadow: -2px -2px var(--main-color), -2px 2px inset var(--main-color);
+}
