@@ -5,6 +5,6 @@
 <body>
   <div class="centered">
     <h1>Wrong URL entered</h1>
-    <a href="<?= DOMAIN ?>home">Biblioweb</a>
+    <a href="<?= DOMAIN ?>">Biblioweb</a>
   </div>
 </body>
