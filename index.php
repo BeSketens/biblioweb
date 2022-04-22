@@ -19,12 +19,9 @@ isset($_GET['action']) ? $action = htmlentities($_GET['action']) : $action = fal
 
 switch ($action) {
     case false:
-        $controller = null;
-        break;
-    case 'home':
         require CONTROLLER_PATH . 'homePageController.php';
         $controller = new Home($db);
-        break;   
+        break; 
     case 'filter':
         require  CONTROLLER_PATH . 'filteredSearchController.php';
         $controller = new FilteredSearch($db);
