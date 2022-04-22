@@ -1,11 +1,37 @@
 RewriteEngine on
 
-# home + reference
+# Dealership catalog :
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ([a-zA-Z_-]+)/([a-zA-Z0-9_-]+) index.php?action=$1&ref=$2 [L]
+RewriteRule ([a-zA-Z_-]+)/([a-zA-Z_-]+)/([a-zA-Z_-]+)/([a-zA-Z_-]+) index.php?section=$1&action=$2&type=$3&class=$4 [L]
 
-# home
+# section + action
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ([a-zA-Z_-]+) index.php?action=$1 [L]
+RewriteRule ([a-zA-Z_-]+)/([a-zA-Z_-]+) index.php?section=$1&action=$2 [L]
+
+# final oauth2 check
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule oauth2 index.php?oauth2=oauth2 [L]
+
+# login
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule login index.php?action=login [L]
+
+# logout
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule logout index.php?action=logout [L]
+
+# discord returned code
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ([a-zA-Z_-]+) index.php?code=$1 [L]
+
+
+
+
+
+

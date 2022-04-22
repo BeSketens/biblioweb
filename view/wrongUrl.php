@@ -3,7 +3,7 @@
   <title>Invalid</title>
 </head>
 <body>
-  <div class="centered">
+  <div class="fixed-centered">
     <h1>Wrong URL entered</h1>
     <a href="<?= DOMAIN ?>">Biblioweb</a>
   </div>

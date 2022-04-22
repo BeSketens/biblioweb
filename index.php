@@ -15,13 +15,14 @@ $db = Database::getInstance();
 
 ############################################################################### MAIN
 
-isset($_GET['action']) ? $action = htmlentities($_GET['action']) : $action = false;
+isset($_GET['action']) ? $action = htmlspecialchars($_GET['action']) : $action = false;
+isset($_GET['key']) ? $_SESSION['filter'] = htmlspecialchars($_GET['key']) : $_SESSION['filter'] = null;
 
 switch ($action) {
     case false:
         require CONTROLLER_PATH . 'homePageController.php';
         $controller = new Home($db);
-        break; 
+        break;
     case 'filter':
         require  CONTROLLER_PATH . 'filteredSearchController.php';
         $controller = new FilteredSearch($db);
@@ -44,7 +45,7 @@ switch ($action) {
         break;    
     case 'logout':
         require CONTROLLER_PATH . 'logoutController.php';
-        $controller = new Logout($db);
+        $controller = new Logout();
         break;        
 }
 

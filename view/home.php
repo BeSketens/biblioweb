@@ -1,11 +1,11 @@
-<form action="<?= DOMAIN ?>filter" method="post">
+<form action="<?= DOMAIN ?>filter" method="get">
     <div>
         <label>
             Filtre
             <input type="text" name="key" placeholder="Titre du livre">
         </label>
     </div>
-    <button>Rechercher</button>
+    <button type="submit">Rechercher</button>
 </form>
 <div id="books-container">
 <?php foreach($books as $book) { ?>

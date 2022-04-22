@@ -12,7 +12,7 @@ class FilteredSearch {
     public function runScript()
     {
 
-        isset($_POST['key']) && !empty($_POST['key']) ? $keyword = htmlentities($_POST['key']) : $keyword = false;
+        isset($_SESSION['filter']) ? $keyword = htmlentities($_SESSION['filter']) : $keyword = false;
 
         if ($keyword) {
             $books = $this->dbRemote->getFilteredBooks($keyword);

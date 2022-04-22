@@ -13,14 +13,14 @@
 <?php   } ?>
         </div>
         <div class="centered">
-            <a href="<?= DOMAIN ?>home">
+            <a href="<?= DOMAIN ?>">
                 <h4>Retour à la liste des livres</h4>
             </a>
         </div>
 <?php } else { ?>
         <div class="centered">
             <h1>Pas de filtre de recherche</h1>
-            <a href="<?= DOMAIN ?>home">Retour à la liste des livres</a>
+            <a href="<?= DOMAIN ?>">Retour à la liste des livres</a>
         </div>
 <?php } ?>
         

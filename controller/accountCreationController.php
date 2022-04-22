@@ -41,8 +41,11 @@ class Account {
             return 'Votre nom d\'utlisateur ne peut dépasser 30 charactères';
         }
 
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return 'Votre adresse email est invalide !';
+        }
+
         $isAccountCreated = $this->dbRemote->createUser($username, $email, $status, $pwd);
-        // var_dump($isAccountCreated);
 
         if ($isAccountCreated) {
             header('Location: ' . DOMAIN . 'login');

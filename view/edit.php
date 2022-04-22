@@ -2,13 +2,13 @@
     <!-- ERROR NO REFERENCE -->
     <div class="fixed-centered">
         <h1>Erreur de sélection du livre</h1>
-        <a href="<?= DOMAIN ?>home">Retour à la liste des livres</a>
+        <a href="<?= DOMAIN ?>">Retour à la liste des livres</a>
     </div>
 <?php } elseif (isset($dataArray['success'])) { ?>
     <!-- SUCCESS MODIFICATION -->
     <div class="fixed-centered">
         <h1>Modification effectuée</h1>
-        <a href="<?= DOMAIN ?>home">Retour à la liste des livres</a>
+        <a href="<?= DOMAIN ?>">Retour à la liste des livres</a>
     </div>
 <?php } else { ?>
         <div class="fixed-centered">

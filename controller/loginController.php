@@ -47,7 +47,7 @@ class Login {
 
         $this->sessionInit($userAccount);
 
-        header('Location: ' . DOMAIN . 'home');
+        header('Location: ' . DOMAIN);
         exit();
 
         return '';
