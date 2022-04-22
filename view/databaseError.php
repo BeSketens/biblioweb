@@ -5,6 +5,6 @@
 <body>
   <div class="centered">
     <h1>No database found</h1>
-    <a href="<?= DOMAIN ?>home">Try again</a>
+    <a href="<?= DOMAIN ?>">Try again</a>
   </div>
 </body>
