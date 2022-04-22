@@ -12,7 +12,7 @@ class Account {
     public function runScript()
     {
         if (IS_CONNECTED) {
-            header('Location: ' . DOMAIN . 'home');
+            header('Location: ' . DOMAIN);
             exit();
         }
 
