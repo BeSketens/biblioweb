@@ -9,7 +9,7 @@ class Logout {
         session_unset();
         session_destroy();
 
-        header('Location: ' . DOMAIN . 'home');
+        header('Location: ' . DOMAIN);
         exit();
     }
 
