@@ -16,7 +16,7 @@ date_default_timezone_set('Europe/Brussels');
 <body>
     <header id="main-header">
         <div>
-            <a href="<?= DOMAIN ?>home">
+            <a href="<?= DOMAIN ?>">
                 <h1>Biblioweb</h1>
             </a>
         </div>
