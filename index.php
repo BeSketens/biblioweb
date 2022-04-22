@@ -52,7 +52,7 @@ switch ($action) {
 ############################################################################### View load
 
 $array = (array) $db; # to check if database link exists
-if ($array[array_key_first($array)] != null) {
+if (!empty($array)) {
     if (isset($controller)) {
 
         # header
