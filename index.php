@@ -51,8 +51,7 @@ switch ($action) {
 
 ############################################################################### View load
 
-$array = (array) $db; # to check if database link exists
-if (!isset($array) || !empty($array)) {
+try {
     if (isset($controller)) {
 
         # header
@@ -70,6 +69,6 @@ if (!isset($array) || !empty($array)) {
 
     }
     
-} else { # if error while trying to get db access
+} catch (Error) { # if error while trying to get db access
     require VIEW_PATH . 'databaseError.php';
 }
