@@ -1,10 +1,12 @@
+<html lang="fr">
 <head>
   <link rel="stylesheet" href="<?= DOMAIN ?>view/css/style.css" />
-  <title>Invalid</title>
+  <title>Invalide</title>
 </head>
 <body>
   <div class="centered">
-    <h1>No database found</h1>
-    <a href="<?= DOMAIN ?>">Try again</a>
+    <h1>Une erreur est survenue</h1>
+    <a href="<?= DOMAIN ?>">Accueil</a>
   </div>
 </body>
+</html>
