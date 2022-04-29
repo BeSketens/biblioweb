@@ -69,8 +69,8 @@ try {
 
     }
     
-} catch (Error) { # if error while trying to get db access
-    require VIEW_PATH . 'databaseError.php';
+} catch (Error) { # if any errors occured
+    require VIEW_PATH . 'error.php';
     
     # footer
     require VIEW_PATH . 'footer.php';
