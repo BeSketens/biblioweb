@@ -51,5 +51,5 @@
 <?php } ?>
 
     <div class="centered" style="color:brown">
-        <h3>Besoin de plus d'information pour la modification des livres, le formulaire ne modifie rien pour le moment</h3>
+        <h3>Le formulaire ne modifie rien pour le moment</h3>
     </div>
