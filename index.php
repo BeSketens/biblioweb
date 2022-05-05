@@ -15,8 +15,8 @@ $db = Database::getInstance();
 
 ############################################################################### MAIN
 
-isset($_GET['action']) ? $action = htmlspecialchars($_GET['action']) : $action = false;
-isset($_GET['key']) ? $_SESSION['filter'] = htmlspecialchars($_GET['key']) : $_SESSION['filter'] = null;
+$action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : false;
+$_SESSION['filter'] = isset($_GET['key']) ? htmlspecialchars($_GET['key']) : false;
 
 switch ($action) {
     case false:
@@ -38,7 +38,31 @@ switch ($action) {
     case 'create-account':
         require CONTROLLER_PATH . 'accountCreationController.php';
         $controller = new Account($db);
-        break;    
+        break;
+    case 'admin' :
+        require CONTROLLER_PATH . 'adminController.php';
+        $controller = new Admin($db);
+
+        if (isset($_GET['author']) && isset($_GET['authorAction'])) { # actions on authors
+
+            $_SESSION['adminTarget'] = "author";
+            $_SESSION['adminAction'] = htmlspecialchars($_GET['authorAction']);
+            $_SESSION['adminTargetId'] = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : false;
+
+        } elseif (isset($_GET['members']) && isset($_GET['authorAction'])) { # actions on members
+
+            $_SESSION['adminTarget'] = "member";
+            $_SESSION['adminAction'] = htmlspecialchars($_GET['authorAction']);
+            $_SESSION['adminTargetId'] = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : false;
+
+        } else {
+
+            $_SESSION['adminTarget'] = false;
+            $_SESSION['adminAction'] = false;
+
+        }
+
+        break;
     case 'expert-room':
         require CONTROLLER_PATH . 'expertRoomController.php';
         $controller = new ExpertRoom($db);

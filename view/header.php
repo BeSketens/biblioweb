@@ -26,6 +26,9 @@ date_default_timezone_set('Europe/Brussels');
                     <a href="<?= DOMAIN ?>create-account">Créer un compte</a>
                     <a href="<?= DOMAIN ?>login">Se connecter</a>
             <?php } else { # session set
+                    if ($_SESSION['status'] == 'admin') { ?>
+                        <a href="<?= DOMAIN ?>admin">Administration</a>
+            <?php   }
                     if ($_SESSION['status'] == 'expert') { ?>
                         <a href="<?= DOMAIN ?>expert-room">Expert Room</a>
             <?php   } ?>

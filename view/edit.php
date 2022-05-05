@@ -27,7 +27,7 @@
                     </label>
                     <label>
                         Illustration
-                        <input autocomplete="off" type="text" name="cover_url" value="<?= $dataArray['cover_url'] ?>">
+                        <input autocomplete="off" type="file" name="cover_url" value="<?= $dataArray['cover_url'] ?>">
                         </label>
                     <label>
                         Auteur

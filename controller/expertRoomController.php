@@ -11,7 +11,7 @@ class ExpertRoom {
 
     public function runScript()
     {
-        if (!IS_CONNECTED || (isset($_SESSION['status']) && $_SESSION['status'] != 'expert')) {
+        if (!IS_CONNECTED || (IS_CONNECTED && $_SESSION['status'] != 'expert')) {
             header('Location: ' . DOMAIN);
             exit();
         }

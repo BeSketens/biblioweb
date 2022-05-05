@@ -8,7 +8,9 @@
                     <figcaption><?= $book['title'] ?></figcaption>
                 </figure>
                 <p><?= $book['description'] ?></p>
-                <a href="<?= DOMAIN ?>edit/<?= $book['ref'] ?>">Modifier</a>
+                <?php if (IS_CONNECTED && $_SESSION['status'] == 'admin') { ?>
+                    <a href="<?= DOMAIN ?>edit/<?= $book['ref'] ?>">Modifier</a>
+                <?php } ?>
             </article>
 <?php   } ?>
         </div>

@@ -2,8 +2,8 @@
 
 class Database {
 
-    private static $instance = null;
-    private $db;
+    private static ?Database $instance = null;
+    private PDO $db;
 
     private function __construct(){
         try {
@@ -13,7 +13,7 @@ class Database {
         }
     }
 
-    public static function getInstance()
+    public static function getInstance(): ?Database
     {
         if (is_null(self::$instance)) {
             self::$instance = new Database();
@@ -21,14 +21,14 @@ class Database {
         return self::$instance;
     }
 
-    public function getAllBooks()
+    public function getAllBooks(): bool|array
     {
         $request = $this->db->query('SELECT * FROM books ORDER BY title');
 
         return $request->fetchAll();
     }
 
-    public function getFilteredBooks($filter)
+    public function getFilteredBooks($filter): bool|array
     {
         $filterTmp = "%" . $filter . "%";
         $request = $this->db->prepare('SELECT * FROM books WHERE title LIKE ? ORDER BY title');
@@ -45,7 +45,7 @@ class Database {
         return $request->fetch();
     }
 
-    public function createUser($login, $email, $status, $pwd)
+    public function createUser($login, $email, $status, $pwd): bool
     {
         $passwordTmp = password_hash($pwd, CRYPT_BLOWFISH);
         $request = $this->db->prepare('INSERT INTO users (login, email, statut, password) VALUES (?, ?, ?, ?)');
@@ -60,5 +60,57 @@ class Database {
         $request->execute(array($email));
 
         return $request->fetch();
+    }
+
+    public function getMembers(): bool|array
+    {
+        $request = $this->db->query('SELECT * FROM users');
+
+        return $request->rowCount() >= 1 ? $request->fetchAll() : false;
+    }
+
+    public function getAuthors(): bool|array
+    {
+        $request = $this->db->query('SELECT * FROM authors');
+
+        return $request->rowCount() >= 1 ? $request->fetchAll() : false;
+    }
+
+    public function getAuthor($id): bool|array
+    {
+        $request = $this->db->prepare('SELECT * FROM authors WHERE id = ?');
+        $request->execute(array($id));
+
+        return $request->fetch();
+    }
+
+    public function deleteAuthor(): bool
+    {
+
+        /*
+         * Faut-il delete les livres des auteurs avec ou bien juste l'auteur ? Les livres n'auront donc plus d 'auteur -> erreurs incoming
+         */
+
+        return true;
+    }
+
+    public function addAuthor($lastname, $firstname, $nationality): bool
+    {
+        $request = $this->db->prepare('INSERT INTO authors (lastname, firstname, nationality) VALUES (?, ?, ?)');
+        $request->execute(array($lastname, $firstname, $nationality));
+
+        return $request->rowCount() == 1;
+    }
+
+    public function modifyAuthor($lastname, $firstname, $nationality, $authorId): bool
+    {
+        $update = empty($lastname) ? '' : ' lastname = "' . $lastname . '"';
+        $update .= empty($firstname) ? '' : ' firstname = "' . $firstname . '"';
+        $update .= empty($nationality) ? '' : ' nationality = "' . $nationality . '"';
+
+        $request = $this->db->prepare('UPDATE authors SET ' . $update . ' WHERE id = ?');
+        $request->execute(array($authorId));
+
+        return $request->rowCount() == 1;
     }
 }
