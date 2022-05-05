@@ -31,6 +31,7 @@
                         </label>
                     <label>
                         Auteur
+                        <!-- select dynamique à implémenter -->
                         <select name="author_id">
                             <option hidden value="">Choisissez</option>
                             <option value="1">Bob Sull</option>
